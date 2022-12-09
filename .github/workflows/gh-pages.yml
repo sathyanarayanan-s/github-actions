@@ -14,7 +14,10 @@ jobs:
     - name: create html file
       shell: bash
       run: |
-        echo "test page" >> build/index.html
+        mkdir build
+        cd build
+        touch index.html
+        echo "test page" > index.html
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
