@@ -1,0 +1,22 @@
+name: 'Github pages'
+
+on:
+  push:
+    branches:
+    - 'main'
+
+jobs:
+  gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+    - name: actions/checkout@v3
+
+    - name: create html file
+      shell: bash
+      run: |
+        echo "test page" >> build/index.html
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build
